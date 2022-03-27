@@ -13,16 +13,14 @@ const ENV = process.env.NODE_ENV;
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({        
+      useFactory: async (configService: ConfigService) => ({
         type: 'mysql' as 'mysql',//configService.get('DATABASE_TYPE'),
         host: configService.get('DATABASE_HOST'),
         port: configService.get('DATABASE_PORT'),
-        username: configService.get('DATABASE_USER'),        
-        password: '',
-        database: configService.get('DATABASE_NAME'),
-        //password: configService.get('DATABASE_PASSWORD'),
-        //database: configService.get('DATABASE_NAME'),
-        autoLoadEntities: true,      
+        username: configService.get<string>('DATABASE_USER'),
+        password: configService.get<string>('DATABASE_PASSWORD'),
+        database: configService.get<string>('DATABASE_NAME'),
+        autoLoadEntities: true,
       }),
       inject: [ConfigService],
     }),
