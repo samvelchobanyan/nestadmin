@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { EntityModule } from './entity/entity.module';
+import { ContentModule } from './content/content.module';
 
 const ENV = process.env.NODE_ENV;
 @Module({
@@ -24,7 +24,7 @@ const ENV = process.env.NODE_ENV;
       }),
       inject: [ConfigService],
     }),
-    EntityModule
+    ContentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
