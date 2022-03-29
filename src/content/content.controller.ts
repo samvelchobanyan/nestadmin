@@ -7,11 +7,9 @@ export class ContentController {
 
     @Get()
     @Render('content_list')
-    getAllAcontent(){
-        this.contentService.findAll().then((payload)=>{
-           console.log('controller',payload)
-           return payload;
-        })
+    async getAllAcontent(){
+        const content_data = await this.contentService.findAll()
+        return({payload: content_data})
     }
 
 }
