@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Entities } from './models/content.entity';
+import { Content } from './models/content.entity';
 
 @Injectable()
 export class ContentService {
     constructor(
-        @InjectRepository(Entities)
-        private contentRepo: Repository<Entities>
+        @InjectRepository(Content)
+        private contentRepo: Repository<Content>
     ){}
 
-    findAll(): Promise<Entities[]>{
+    findAll(): Promise<Content[]>{
         return this.contentRepo.find();
     }
 
-    findOne(id: string): Promise<Entities>{
+    findOne(id: string): Promise<Content>{
         return this.contentRepo.findOne(id);
     }
 }
