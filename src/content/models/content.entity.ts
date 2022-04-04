@@ -1,6 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('Entities')
+@Entity('entities')
 export class Content {
     @PrimaryGeneratedColumn({ type: "int", name: "entity_id", unsigned: true })
     entityId: number;
@@ -42,7 +42,7 @@ export class Content {
     entityIsWidget: number;
 }
 
-@Entity()
+@Entity('entity_data')
 export class ContentData{
   @Column("int", { primary: true, name: "ed_entity", unsigned: true })
   edEntity: number;
@@ -106,4 +106,18 @@ export class ContentData{
 
   @Column("time", { name: "ed_datetime_5", nullable: true })
   edDatetime_5: string | null;
+}
+
+@Entity('tmp')
+export class ContTmp{
+  @PrimaryGeneratedColumn()
+  id: number
+
+  @Column()
+  name: string
+
+  @OneToOne(()=>Content)
+  @JoinColumn()
+  cnt: Content
+
 }
