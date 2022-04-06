@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ContentModule } from './content/content.module';
-import { Content, ContentData } from './content/models/content.entity';
+import { Content, ContentData, Tmp } from './content/models/content.entity';
 
 const ENV = process.env.NODE_ENV;
 @Module({
@@ -21,9 +21,9 @@ const ENV = process.env.NODE_ENV;
         username: configService.get<string>('DATABASE_USER'),
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_NAME'),
-        entities: [Content,ContentData],
+        entities: [Content,ContentData,Tmp],
         synchronize: true,
-        //autoLoadEntities: true,
+        autoLoadEntities: true,
       }),
       inject: [ConfigService],
     }),
