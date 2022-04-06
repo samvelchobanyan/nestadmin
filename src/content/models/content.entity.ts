@@ -44,8 +44,8 @@ export class Content {
 
 @Entity('entity_data')
 export class ContentData{
-  @Column("int", { primary: true, name: "ed_entity", unsigned: true })
-  edEntity: number;
+  @PrimaryGeneratedColumn({ type: "int", name: "ed_Id", unsigned: true })
+  edId: number;
 
   @Column("char", { name: "ed_title", nullable: true, length: 255 })
   edTitle: string | null;
@@ -106,18 +106,8 @@ export class ContentData{
 
   @Column("time", { name: "ed_datetime_5", nullable: true })
   edDatetime_5: string | null;
-}
-
-@Entity('tmp')
-export class ContTmp{
-  @PrimaryGeneratedColumn()
-  id: number
-
-  @Column()
-  name: string
 
   @OneToOne(()=>Content)
   @JoinColumn()
-  cnt: Content
-
+  entity: Content
 }
