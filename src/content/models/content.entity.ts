@@ -111,16 +111,3 @@ export class ContentData{
   @JoinColumn()
   entity: Content
 }
-
-@Entity('tmp')
-export class  Tmp{
-    @PrimaryGeneratedColumn({ type: "int", name: "tmp_Id", unsigned: true })
-    edId: number;
-
-    @Column("char", { name: "tmp_name", nullable: true, length: 255 })
-    name: string | null;
-
-    @Column("char", { name: "tmp_description", nullable: true, length: 255 })
-    description: string | null;
-
-}
