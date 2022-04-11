@@ -6,7 +6,7 @@ export class WidgetController {
     constructor(private widgetServise: WidgetService){}
 
     @Get()
-    @Render('widgets')
+    @Render('add_widget')
     async GetWidgets(){
         const data = await this.widgetServise.findAll();
         console.log(data[1])
