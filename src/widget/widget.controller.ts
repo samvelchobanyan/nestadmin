@@ -1,4 +1,5 @@
-import {Controller, Get, Render} from '@nestjs/common';
+import {Body, Controller, Get, Post, Render} from '@nestjs/common';
+import { createWidgetDto } from 'src/dto/addWidget.dto';
 import {WidgetService} from "./widget.service";
 
 @Controller('widget')
@@ -11,5 +12,11 @@ export class WidgetController {
         const data = await this.widgetServise.findAll();
         console.log(data[1])
         return({payload:data})
+    }
+
+    @Post()
+    @Render('add_widget')
+    SaveWidget(@Body() newWidget: createWidgetDto){
+        console.log(newWidget);
     }
 }

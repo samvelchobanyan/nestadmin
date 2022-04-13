@@ -94,3 +94,28 @@ searchMobileTrigger.addEventListener('click', () => {
 });
 
 
+/* ====== Added ======= */
+const char_check = document.querySelectorAll('.char_checkbox');
+const char_input = document.querySelectorAll('.char_input');
+
+const text_check = document.querySelectorAll('.text_checkbox');
+const text_input = document.querySelectorAll('.text_input');
+
+for(var i = 0; i < char_check.length; i++) {
+	char_check[i].addEventListener("click", bindClick());
+}
+for(var i = 0; i < text_check.length; i++) {
+	text_check[i].addEventListener("click", bindClick());
+}
+
+function bindClick(i,elem) {
+ return function() {
+	 if(this.checked){
+		this.parentNode.nextElementSibling.children[0].disabled = false
+	 }else{
+		this.parentNode.nextElementSibling.children[0].disabled = true
+		this.parentNode.nextElementSibling.children[0].value = ''		
+	 }	 
+ };
+}
+
