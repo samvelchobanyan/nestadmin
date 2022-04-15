@@ -5,6 +5,7 @@ import { AppModule } from './app.module';
 import * as hbs from 'hbs';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -12,6 +13,10 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   const PORT = configService.get('PORT') || 5000;
 
+  app.useGlobalPipes(new ValidationPipe({
+    //disableErrorMessages: true,
+    whitelist: true    
+  }));
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');

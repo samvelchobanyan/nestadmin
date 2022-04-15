@@ -18,5 +18,6 @@ export class WidgetController {
     @Render('add_widget')
     SaveWidget(@Body() newWidget: createWidgetDto){
         console.log(newWidget);
+        
     }
 }
