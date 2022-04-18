@@ -17,7 +17,7 @@ export class WidgetController {
     @Post()
     @Render('add_widget')
     SaveWidget(@Body() newWidget: createWidgetDto){
-        console.log(newWidget);
-        
+        console.log('controller log',newWidget);      
+        this.widgetServise.saveWidget(newWidget);  
     }
 }
