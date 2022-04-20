@@ -23,6 +23,10 @@ export class WidgetService {
         return widget_data;
     }
 
+    findOne(id: string): Promise<WidgetTypes>{
+        return this.WidgetRepo.findOne(id);        
+    }
+
     saveWidget(widgetData: createWidgetDto){
         const widgetName = widgetData.name;
         delete widgetData.name;

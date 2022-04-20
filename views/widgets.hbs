@@ -1,8 +1,32 @@
-asdasdads
 {{!log  payload}}
-<select class="form-select w-auto">
-    <option selected="" value="option-1">All</option>
-    {{#each payload}}
-        <option value="{{edId}}">{{name}}</option>
-    {{/each}}
-</select>
+<div id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">
+    <div class="app-card app-card-orders-table mb-5">
+        <div class="app-card-body">
+            <div class="table-responsive">
+                
+                <table class="table mb-0 text-left">
+                    <thead>
+                        <tr>
+                            <th class="cell">Id</th>
+                            <th class="cell">Name</th>
+                            <th class="cell">Description</th>
+                            <th class="cell">Date</th>
+                            <th class="cell"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each payload}}
+                            <tr>
+                                <td class="cell">{{edId}}</td>
+                                <td class="cell">{{name}}</td>
+                                <td class="cell">{{description}}</td>
+                                <td class="cell"><span>17 Oct</span><span class="note">2:16 PM</span></td>
+                                <td class="cell"><a class="btn-sm app-btn-secondary" href="/widget/{{edId}}">View</a></td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div><!--//table-responsive-->
+        </div><!--//app-card-body-->		
+    </div><!--//app-card-->
+</div><!--//tab-pane-->
