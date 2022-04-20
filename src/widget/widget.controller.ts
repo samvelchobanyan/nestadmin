@@ -10,28 +10,29 @@ export class WidgetController {
     @Render('widgets')
     async GetWidgets(){
         const data = await this.widgetServise.findAll();
-        console.log('widgets controller',data)
+        //console.log('widgets controller',data)
         return({payload:data})
     }
 
-    @Get('add')
-    @Render('add_widget')
-    AddWidget(){        
-        console.log('add widget')
-        // return('add widget')
-    }
+    // @Get('add')
+    // @Render('add_widget')
+    // AddWidget(){        
+    //     console.log('add widget')
+    //     // return('add widget')
+    // }
 
     @Get(':id')
+    @Render('add_widget')
     async EditWidgets(@Param('id') id:string){
         const data = await this.widgetServise.findOne(id);
         console.log('widgets controller1',data)
-        return({payload:data})
+        return(data)
     }
 
-    @Post()
+    @Post('add')
     @Render('add_widget')
     SaveWidget(@Body() newWidget: createWidgetDto){
-        console.log('controller log',newWidget);      
+        //console.log('controller log',newWidget);      
         this.widgetServise.saveWidget(newWidget);  
     }
 }

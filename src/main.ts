@@ -21,6 +21,9 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
   hbs.registerPartials(join(__dirname, '..', 'views/partials'));
+  hbs.registerHelper('isset',function(val){
+    return (typeof val === "undefined" || val === null ) ? "" : val;
+  })
   
   await app.listen(PORT, () => console.log(`server started on port =${PORT}`));
 }
