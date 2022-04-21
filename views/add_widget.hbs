@@ -1,12 +1,18 @@
-{{!log data}}
+{{log conf.char_1}}
 <div class="container-xl">			    
 	<h1 class="app-page-title">New Widget</h1>
+
+	{{#ifCond name}}
+		name is not empty
+	{{else}}
+		name is empty
+	{{/ifCond}}
 	
 	<form class="settings-form" method="post" action="/widget/add">
 		<hr class="mb-4">	
 			<label for="setting-input-1" class="form-label">Widget name</label>                                  
 			<div class="col-auto" style="width:95%">
-				<input type="text" class="form-control char_input" name="name">
+				<input type="text" class="form-control char_input" name="name" value="{{isset name}}">
 			</div>		
 		<hr class="mb-4">				
 		<div class="row g-4 settings-section">
@@ -25,7 +31,7 @@
 									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_1">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_1" disabled value="">
+									<input type="text" class="form-control char_input" name="char_1" {{#ifCond name}}disabled{{/ifCond}} value="{{isset conf.char_1}}">
 								</div>									          									    
 							</div>
 						</div>
@@ -36,7 +42,7 @@
 									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_2">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_2" disabled value="">
+									<input type="text" class="form-control char_input" name="char_2" disabled value="{{isset conf.char_2}}">
 								</div>									          									    
 							</div>
 						</div>
@@ -47,7 +53,7 @@
 									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_3">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_3" disabled value="">
+									<input type="text" class="form-control char_input" name="char_3" disabled value="{{isset conf.char_3}}">
 								</div>									          									    
 							</div>
 						</div>
@@ -58,7 +64,7 @@
 									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_4">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_4" disabled value="">
+									<input type="text" class="form-control char_input" name="char_4" disabled value="{{isset conf.char_4}}">
 								</div>									          									    
 							</div>
 						</div>									
@@ -83,7 +89,7 @@
 										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text1">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_1" disabled value="">
+										<input type="text" class="form-control text_input" name="text_1" disabled value="{{isset conf.text_1}}">
 									</div>									          									    
 								</div>
 							</div>
@@ -94,7 +100,7 @@
 										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text2">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_2" disabled value="">
+										<input type="text" class="form-control text_input" name="text_2" disabled value="{{isset conf.text_2}}">
 									</div>									          									    
 								</div>
 							</div>
@@ -105,7 +111,7 @@
 										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text3">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_3" disabled value="">
+										<input type="text" class="form-control text_input" name="text_3" disabled value="{{isset conf.text_3}}">
 									</div>									          									    
 								</div>
 							</div>
@@ -116,7 +122,7 @@
 										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text4">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_4" disabled value="">
+										<input type="text" class="form-control text_input" name="text_4" disabled value="{{isset conf.text_4}}">
 									</div>									          									    
 								</div>
 							</div>		

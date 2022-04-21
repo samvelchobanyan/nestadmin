@@ -24,6 +24,12 @@ async function bootstrap() {
   hbs.registerHelper('isset',function(val){
     return (typeof val === "undefined" || val === null ) ? "" : val;
   })
+  hbs.registerHelper('ifCond', function(v,options) {
+    if(v === 'undefined') {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
   
   await app.listen(PORT, () => console.log(`server started on port =${PORT}`));
 }

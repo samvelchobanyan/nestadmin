@@ -14,18 +14,18 @@ export class WidgetController {
         return({payload:data})
     }
 
-    // @Get('add')
-    // @Render('add_widget')
-    // AddWidget(){        
-    //     console.log('add widget')
-    //     // return('add widget')
-    // }
+    @Get('add')
+    @Render('add_widget')
+    AddWidget(){        
+        console.log('add widget')
+        // return('add widget')
+    }
 
     @Get(':id')
     @Render('add_widget')
     async EditWidgets(@Param('id') id:string){
         const data = await this.widgetServise.findOne(id);
-        console.log('widgets controller1',data)
+        // console.log('widgets controller1',data)
         return(data)
     }
 
