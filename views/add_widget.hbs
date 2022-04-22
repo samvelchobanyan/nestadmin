@@ -1,12 +1,5 @@
-{{log conf.char_1}}
 <div class="container-xl">			    
 	<h1 class="app-page-title">New Widget</h1>
-
-	{{#ifCond name}}
-		name is not empty
-	{{else}}
-		name is empty
-	{{/ifCond}}
 	
 	<form class="settings-form" method="post" action="/widget/add">
 		<hr class="mb-4">	
@@ -28,10 +21,10 @@
 							<div class="row g-2 justify-content-start align-items-center">
 								<label for="setting-input-1" class="form-label">Short text 1</label>                                  
 								<div class="col-auto">
-									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_1">                                                
+									<input class="form-check-input char_checkbox" type="checkbox" {{#if conf.char_1 }}checked{{/if}} id="check_char_1">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_1" {{#ifCond name}}disabled{{/ifCond}} value="{{isset conf.char_1}}">
+									<input type="text" class="form-control char_input" name="char_1" {{#unless conf.char_1 }}disabled{{/unless}} value="{{isset conf.char_1}}">
 								</div>									          									    
 							</div>
 						</div>
@@ -39,10 +32,10 @@
 							<div class="row g-2 justify-content-start align-items-center">
 								<label for="setting-input-1" class="form-label">Short text 2</label>                                  
 								<div class="col-auto">
-									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_2">                                                
+									<input class="form-check-input char_checkbox" type="checkbox" {{#if conf.char_2 }}checked{{/if}} id="check_char_2">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_2" disabled value="{{isset conf.char_2}}">
+									<input type="text" class="form-control char_input" name="char_2" {{#unless conf.char_2 }}disabled{{/unless}}  value="{{isset conf.char_2}}">
 								</div>									          									    
 							</div>
 						</div>
@@ -50,10 +43,10 @@
 							<div class="row g-2 justify-content-start align-items-center">
 								<label for="setting-input-1" class="form-label">Short text 3</label>                                  
 								<div class="col-auto">
-									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_3">                                                
+									<input class="form-check-input char_checkbox" type="checkbox" {{#if conf.char_3 }}checked{{/if}} id="check_char_3">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_3" disabled value="{{isset conf.char_3}}">
+									<input type="text" class="form-control char_input" name="char_3" {{#unless conf.char_3 }}disabled{{/unless}}  value="{{isset conf.char_3}}">
 								</div>									          									    
 							</div>
 						</div>
@@ -61,10 +54,10 @@
 							<div class="row g-2 justify-content-start align-items-center">
 								<label for="setting-input-1" class="form-label">Short text 4</label>                                  
 								<div class="col-auto">
-									<input class="form-check-input char_checkbox" type="checkbox" value="" id="check_char_4">                                                
+									<input class="form-check-input char_checkbox" type="checkbox" {{#if conf.char_4 }}checked{{/if}} id="check_char_4">                                                
 								</div>
 								<div class="col-auto" style="width:95%">
-									<input type="text" class="form-control char_input" name="char_4" disabled value="{{isset conf.char_4}}">
+									<input type="text" class="form-control char_input" name="char_4" {{#unless conf.char_4 }}disabled{{/unless}}  value="{{isset conf.char_4}}">
 								</div>									          									    
 							</div>
 						</div>									
@@ -86,10 +79,10 @@
 								<div class="row g-2 justify-content-start align-items-center">
 									<label for="setting-input-1" class="form-label">Text 1</label>                                  
 									<div class="col-auto">
-										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text1">                                                
+										<input class="form-check-input text_checkbox" type="checkbox" {{#if conf.text_1 }}checked{{/if}} id="check_text1">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_1" disabled value="{{isset conf.text_1}}">
+										<input type="text" class="form-control text_input" name="text_1" {{#unless conf.text_1 }}disabled{{/unless}}  value="{{isset conf.text_1}}">
 									</div>									          									    
 								</div>
 							</div>
@@ -97,10 +90,10 @@
 								<div class="row g-2 justify-content-start align-items-center">
 									<label for="setting-input-1" class="form-label">Text 2</label>                                  
 									<div class="col-auto">
-										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text2">                                                
+										<input class="form-check-input text_checkbox" type="checkbox" {{#if conf.text_2 }}checked{{/if}} id="check_text2">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_2" disabled value="{{isset conf.text_2}}">
+										<input type="text" class="form-control text_input" name="text_2" {{#unless conf.text_2 }}disabled{{/unless}}  value="{{isset conf.text_2}}">
 									</div>									          									    
 								</div>
 							</div>
@@ -108,10 +101,10 @@
 								<div class="row g-2 justify-content-start align-items-center">
 									<label for="setting-input-1" class="form-label">Text 3</label>                                  
 									<div class="col-auto">
-										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text3">                                                
+										<input class="form-check-input text_checkbox" type="checkbox" {{#if conf.text_3 }}checked{{/if}} id="check_text3">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_3" disabled value="{{isset conf.text_3}}">
+										<input type="text" class="form-control text_input" name="text_3" {{#unless conf.text_3 }}disabled{{/unless}}  value="{{isset conf.text_3}}">
 									</div>									          									    
 								</div>
 							</div>
@@ -119,10 +112,10 @@
 								<div class="row g-2 justify-content-start align-items-center">
 									<label for="setting-input-1" class="form-label">Text 4</label>                                  
 									<div class="col-auto">
-										<input class="form-check-input text_checkbox" type="checkbox" value="" id="check_text4">                                                
+										<input class="form-check-input text_checkbox" type="checkbox" {{#if conf.text_4 }}checked{{/if}} id="check_text4">                                                
 									</div>
 									<div class="col-auto" style="width:95%">
-										<input type="text" class="form-control text_input" name="text_4" disabled value="{{isset conf.text_4}}">
+										<input type="text" class="form-control text_input" name="text_4" {{#unless conf.text_4 }}disabled{{/unless}}  value="{{isset conf.text_4}}">
 									</div>									          									    
 								</div>
 							</div>		
